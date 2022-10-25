@@ -19,8 +19,6 @@ SELECT ville_nom,ville_surface FROM villes_france_free WHERE ville_surface>(SELE
 #10 
 SELECT departement_nom,SUM(ville_population_2012)AS habitant FROM villes_france_free,departement WHERE ville_departement=departement_code GROUP BY departement_nom HAVING habitant>2000000
 #11
-SELECT ville_nom, REPLACE(ville_nom, '-', ' ') as replaced FROM villes_france_free WHERE LEFT(ville_nom,5) LIKE '%SAINT%'
+SELECT ville_nom, REPLACE(ville_nom, '-', ' ') as replaced FROM villes_france_free WHERE LEFT(ville_nom,6) LIKE '%SAINT-%'
 #BONUS population ile de france en 2012
-SELECT SUM(ville_population_2012)AS population_ile_de_france FROM villes_france_free
-WHERE
-	ville_departement in(75, 77, 78, 91, 92, 93, 94, 95)
+SELECT SUM(ville_population_2012)AS population_ile_de_france FROM villes_france_free WHERE ville_departement in(75, 77, 78, 91, 92, 93, 94, 95)
